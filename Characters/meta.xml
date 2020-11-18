@@ -1,0 +1,8 @@
+<meta>
+    <info name='Characters' author="DimDey" />
+	<script src="Server/SMain.lua" />
+	<script src="Server/SCharacter.lua" />
+	<script src="Client/CMain.lua" type="client" />
+
+    <oop>true</oop>
+</meta>

@@ -1,0 +1,11 @@
+<meta>
+    <info name='GameController' author="DimDey" />
+	<script src="Server/SMain.lua" />
+	<script src="Server/SUtils.lua" />
+	<script src="Server/Database/SDataBaseModule.lua" />
+	<script src="Server/Database/SExecLogger.lua" />
+	<script src="Client/CMain.lua" type="client" />
+
+	<export function="exportDB" type="server" />
+
+</meta>

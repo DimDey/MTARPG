@@ -1,0 +1,7 @@
+[1605735364]: Characters request exec("UPDATE `characters` SET `nExperience` = 5 WHERE `characters`.`id` = 1")
+[1605735375]: Characters request exec("UPDATE `characters` SET `nExperience` = 5 WHERE `characters`.`id` = 1")
+[1605735916]: Characters request exec("UPDATE `characters` SET `nExperience` = 5 WHERE `characters`.`id` = 1")
+[1605735950]: Characters request exec("UPDATE `characters` SET `exp` = 5 WHERE `characters`.`id` = 1")
+[1605735955]: Characters request exec("UPDATE `characters` SET `exp` = 5 WHERE `characters`.`id` = 1")
+[1605735969]: Characters request exec("UPDATE `characters` SET `exp` = 10 WHERE `characters`.`id` = 1")
+[1605735987]: Characters request exec("UPDATE `characters` SET `exp` = 10 WHERE `characters`.`id` = 1")
