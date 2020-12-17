@@ -23,7 +23,6 @@ Database = {
 
     exec = function( self, ... )
         local queryHandle = dbQuery( self.pDatabase, ... )
-        local aResult = dbPoll(queryHandle, -1)
-        return aResult;
+        return dbPoll(queryHandle, -1);
     end;
 }

@@ -1,0 +1,13 @@
+<meta>
+    <info name='GameController' author="DimDey" />
+	<script src="Server/SMain.lua" />
+	<script src="Server/SUtils.lua" />
+	<script src="Server/Events/Auth/SAuthE.lua" />
+	<script src="Server/Events/Character/SCharE.lua" />
+	<script src="Client/CMain.lua" type="client" />
+	<script src="Client/Events/CCharEvents.lua" type="client" />
+	<script src="Client/CRenderNames.lua" type="client" />
+	<script src="Client/CUtils.lua" type="client" />
+
+	<oop>true</oop>
+</meta>

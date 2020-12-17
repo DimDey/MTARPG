@@ -1,0 +1,7 @@
+<meta>
+	<script src="Client/CCameraMain.lua" type="client" cache="false" />
+	<script src="Client/CPlayerControls.lua" type="client" cache="false" />
+	<script src="Client/CUtils.lua" type="client" cache="false" />
+
+	<oop>true</oop>
+</meta>

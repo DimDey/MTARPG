@@ -1,0 +1,6 @@
+<meta>
+    <script src="Client/CGUI.lua" type="client" cache="false" />
+    <script src="Client/CHealth.lua" type="client" cache="false" />
+
+	<oop>true</oop>
+</meta>
