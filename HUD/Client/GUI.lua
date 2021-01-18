@@ -3,9 +3,7 @@ rX, rY = 1440, 900;
 aX, aY = sX / 1440, sY / 900;
 
 GUI = {
-    aComponents = {
-        ['Health'] = CHealth;
-    };
+    aComponents = {};
 
     showComponents = function( self, state )
         for index, component in pairs( self.aComponents ) do

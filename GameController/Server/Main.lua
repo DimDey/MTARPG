@@ -1,6 +1,11 @@
 local gamemodeResources = {
-    [1] = 'Auth',
-    [2] = 'Character';
+    'Auth';
+    'Character';
+    'Camera';
+    'LocationManager';
+    'Notifications';
+    'HUD';
+    'NPC';
 }
 
 Main = {

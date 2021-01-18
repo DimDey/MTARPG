@@ -1,12 +1,11 @@
 <meta>
-    <script src="Client/CLocationManager.lua" type="client" cache="false" />
     
-    <script src="Server/SLocationLoader.lua" type="server" />
-    <script src="Server/SLocationLobbies.lua" type="server" />
-    <script src="Locations/Village/SVillage.lua" type="server" />
+    <script src="Server/LocationLoader.lua" type="server" />
+    <script src="Server/LocationLobbies.lua" type="server" />
+    <script src="Locations/Village/Village.lua" type="server" />
 
-    <script src="Server/SUtils.lua" type="server" />
-    <script src="Client/CUtils.lua" type="client" cache="false" />
+    <script src="Server/Utils.lua" type="server" />
+    <script src="Client/Utils.lua" type="client" cache="false" />
 
 	<oop>true</oop>
 </meta>

@@ -2,7 +2,7 @@ Database.execController = function( sResourceName, fCallbackFunction, aCallbackA
     local aResult, nResultRows, nLastId = Database:exec( sQuery );
     local aReturnData = {
         aQuery = { sQuery };
-        aResult = {
+        aData = {
             aResult = aResult, 
             nRows = nResultRows, 
             nLastId = nLastId
@@ -54,7 +54,7 @@ function exportDB() --export database controller to the other resource
                     return _G[aReturnData.fFunction]( aReturnData.aFunctionArgs, aReturnData.aResult );
                 else
                     local fFunction = Database:getFunction( aReturnData.fFunction );
-                    return fFunction( aReturnData.aFunctionArgs, aReturnData.aResult );
+                    return fFunction( aReturnData.aFunctionArgs, aReturnData.aData );
                 end
             end;
 

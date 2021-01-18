@@ -1,4 +1,4 @@
-SAuth.Register = {
+Auth.Register = {
     onCreateCharacter = function( self, pPlayer, sLogin, sPassword )
         local bIsAccountCreated, nRows = Database:exec('SELECT * FROM `characters` WHERE username="'..sLogin..'"')
         
@@ -22,7 +22,7 @@ SAuth.Register = {
 
     onAccountCreated = function( aArguments, aResult )
         if aResult.nRows == 1 then
-            SAuth:onCharacterSuccessAuth( aArguments.pPlayer, aArguments.sLogin, aResult.nLastId );
+            Auth:onCharacterSuccessAuth( aArguments.pPlayer, aArguments.sLogin, aResult.nLastId );
         end
     end;
 }

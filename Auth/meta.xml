@@ -1,10 +1,11 @@
 <meta>
     <info name='GameController' author="DimDey" />
-	<script src="Server/SMain.lua" />
-	<script src="Server/Login/SLogin.lua" />
-	<script src="Server/Register/SRegister.lua" />
-	<script src="Server/SUtils.lua" />
-	<script src="Client/CMain.lua" type="client" />
+	<script src="Server/Main.lua" />
+	<script src="Server/Login/Login.lua" />
+	<script src="Server/Register/Register.lua" />
+	<script src="Server/Utils.lua" />
+
+	<script src="Client/Main.lua" type="client" cache='false' />
 
 	<oop>true</oop>
 </meta>

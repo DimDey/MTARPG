@@ -1,4 +1,4 @@
-CHealth = {
+Health = {
     components = {
         healthBar = { p = 1; type = 'rectangle'; x = 500; y = 31; w = 431; h = 32; r = 254; g = 80; b = 80; };
         healthCount = { p = 2; type = 'text'; text = '100'; x = 500; y = 31; w = 931; h = 63; r = 255; g =  255; b =  255; font = 'deafult-bold'; alignX = 'center'; alignY = 'center'; };
@@ -13,7 +13,7 @@ CHealth = {
     end;
 
     updateBar = function( self )
-        self = CHealth
+        self = Health
         local nHealth = localPlayer.health
         if nHealth > 96 and self.nAlpha > 0 then
             if self.nInterpolateProgress == 0 then self.nInterpolateProgress = getTickCount() end
@@ -44,5 +44,5 @@ CHealth = {
         end;
     end;
 }
-setTimer( CHealth.updateBar, 20, 0, CHealth );
-GUI.aComponents['Health'] = CHealth;
+setTimer( Health.updateBar, 20, 0, Health );
+GUI.aComponents['Health'] = Health;

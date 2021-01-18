@@ -1,6 +1,6 @@
 <meta>
-    <script src="Client/CGUI.lua" type="client" cache="false" />
-    <script src="Client/CHealth.lua" type="client" cache="false" />
+    <script src="Client/GUI.lua" type="client" cache="false" />
+    <script src="Client/Health.lua" type="client" cache="false" />
 
 	<oop>true</oop>
 </meta>

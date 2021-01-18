@@ -28,7 +28,7 @@ LocationLobbyManager = {
     end;
 
     removeLobby = function( self, aLocationId, aLobbyId )
-        outputDebugString('remove lobby')
+        aActiveLobbies[aLocationId][aLobbyId] = nil
     end;
 
     connectLobby = function( self, pPlayer, aLobby )
@@ -43,7 +43,9 @@ LocationLobbyManager = {
 
         pPlayer:setData('rpg-activeLobby', aLobby );
         aLobby.nCurrentPlayers = aLobby.nCurrentPlayers + 1;
+        --triggerClientEvent( aLobby.aPlayers, 'onPlayerJoinLobby', pPlayer, aLobby )
         aLobby.aPlayers[pPlayer] = true; 
+        --triggerClientEvent( pPlayer, 'onClientJoinLobby', pPlayer, aLobby )
         return;
     end;
 
@@ -55,6 +57,8 @@ LocationLobbyManager = {
         if aLobby then
             aLobby.nCurrentPlayers = aLobby.nCurrentPlayers - 1;
             aLobby.aPlayers[pPlayer] = nil;
+            --triggerClientEvent( aLobby.aPlayers, 'onPlayerDisconnectLobby', pPlayer, aLobby )
+            --triggerClientEvent( pPlayer, 'onClientDisconnectLobby', pPlayer, aLobby )
             if aLobby.nCurrentPlayers == 0 then
                 self:removeLobby( nLocationId, nLobbyId );
             end

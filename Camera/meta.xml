@@ -1,7 +1,9 @@
 <meta>
-	<script src="Client/CCameraMain.lua" type="client" cache="false" />
-	<script src="Client/CPlayerControls.lua" type="client" cache="false" />
-	<script src="Client/CUtils.lua" type="client" cache="false" />
+	<script src="Client/CameraMain.lua" type="client" cache="false" />
+	<script src="Client/PlayerControls.lua" type="client" cache="false" />
+	<script src="Client/Utils.lua" type="client" cache="false" />
+
+	<script src="Server/PlayerCamControl.lua" type="server" cache="false" />
 
 	<oop>true</oop>
 </meta>

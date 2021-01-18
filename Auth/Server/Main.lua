@@ -1,5 +1,5 @@
 PASSWORDHESHKEY = 'FpgN2';
-SAuth = {
+Auth = {
 
     onInit = function()
         outputDebugString('[JR-AUTH]: Module init...');
@@ -20,13 +20,13 @@ SAuth = {
         return true;
     end;
 }
-addEventHandler('onResourceStart', resourceRoot, SAuth.onInit)
+addEventHandler('onResourceStart', resourceRoot, Auth.onInit)
 
 function devAuth( pPlayer, commandName, sLogin, sPassword )
     if commandName == 'reg' then
-        SAuth.Register:onCreateCharacter( pPlayer, sLogin, sPassword)
+        Auth.Register:onCreateCharacter( pPlayer, sLogin, sPassword)
     else
-        SAuth.Login:onCharacterAuth( pPlayer, sLogin, sPassword)
+        Auth.Login:onCharacterAuth( pPlayer, sLogin, sPassword)
     end
 end
 

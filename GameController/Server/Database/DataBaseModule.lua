@@ -9,7 +9,7 @@ Database = {
     bConnected = false;
 
     init = function( self )
-        local pConnection = dbConnect( self.sType, "dbname="..self.sBase..";host="..self.sIp..";", self.sUser, self.sPassword )
+        local pConnection = dbConnect( self.sType, "dbname="..self.sBase..";host="..self.sIp..";charset=utf8", self.sUser, self.sPassword )
         if not pConnection then
             outputDebugString("Error: Failed to establish connection to the MySQL database server")
             --stopResource( getThisResource() );

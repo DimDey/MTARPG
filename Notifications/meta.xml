@@ -1,0 +1,14 @@
+<meta>
+	<script src="Client/NotificationsAudio.lua" type="client" cache="false" />
+	<script src="Client/NotificationsController.lua" type="client" cache="false" />
+	<script src="Client/Notifications.lua" type="client" cache="false" />
+	<script src="Client/Utils.lua" type="client" cache="false" />
+
+	<file src='Resources/Fonts/RoboBold.ttf' type='client' />
+	<file src='Resources/Fonts/RoboReg.ttf' type='client' />
+	<file src='Resources/Fonts/RoboLight.ttf' type='client' />
+	<file src='Resources/Fonts/UbuntuBold.ttf' type='client' />
+	<file src='Resources/Sounds/notification.mp3' type='client' />
+
+	<oop>true</oop>
+</meta>

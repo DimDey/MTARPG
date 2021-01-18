@@ -15,13 +15,17 @@ Camera = {
         nCursorX, nCursorY = 0;
     };
 
-    nPlayerRotation = 0;
-
     onStart = function()
         addEventHandler('onClientPreRender', root, Camera.onPreRender)
         addEventHandler('onClientRender', root, Camera.onRender)
         showCursor( true )
-        setPedWalkingStyle(localPlayer,54) 
+    end;
+
+    onStop = function( )
+        removeEventHandler('onClientPreRender', root, Camera.onPreRender)
+        removeEventHandler('onClientRender', root, Camera.onRender)
+
+        Camera:stopControls( );
     end;
 
     setZoom = function( self, nDelta )
@@ -87,3 +91,13 @@ addEventHandler('onCameraInit', root, Camera.onStart)
 addEventHandler('onClientResourceStart', resourceRoot, Camera.onStart)
 addEventHandler('onClientCursorMove', root, Camera.onCursorMove )
 addEventHandler('onClientKey', root, Camera.onClientKey )
+
+addEvent('onServerStopCamera', true )
+addEventHandler('onServerStopCamera', root, Camera.onStop )
+
+bindKey('[', 'down', function()
+    Camera:onStop();
+end);
+bindKey(']', 'down', function()
+    Camera:onStart();
+end);

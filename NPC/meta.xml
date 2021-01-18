@@ -1,4 +1,8 @@
 <meta>
+	<script src="Server/Container.lua" type="server" />
+	<script src="Client/Loader.lua" type="client" cache='false' />
+	<script src="Client/RenderNames.lua" type="client" cache='false' />
+	<script src="Client/Utils.lua" type="client" cache='false' />
 
 	<oop>true</oop>
 </meta>

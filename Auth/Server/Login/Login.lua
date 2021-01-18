@@ -1,4 +1,4 @@
-SAuth.Login = {
+Auth.Login = {
     onCharacterAuth = function( self, pPlayer, sLogin, sPassword )
         local aResult, nRows, nLastId = Database:exec('SELECT * FROM `characters` WHERE username="'..sLogin..'"')
         if nRows == 1 then
@@ -11,7 +11,7 @@ SAuth.Login = {
             local sPasswordHash = teaEncode( sPassword, sUniqueAuthKey )
 
             if sPasswordHash == aAccountData.password then
-                SAuth:onCharacterSuccessAuth( pPlayer, sLogin, aAccountData.id );
+                Auth:onCharacterSuccessAuth( pPlayer, sLogin, aAccountData.id );
             end
         end 
     end;

@@ -1,0 +1,50 @@
+
+--[[ -------------------------------------
+    ТАБЛИЦА 'QUESTS'
+    ID(AI);
+    NAME(string);
+    tasks(JSON);
+    rewards(JSON);
+    
+
+]]
+
+--[[
+    local tasksJson = {
+            [1] = {
+                name = 'Убить пидорасов';
+                type = 'kill';
+                count = 10;
+            };
+            [2] = {
+                name = 'Осмотреть область';
+                type = 'research';
+                time = 5000;
+            };
+            [3] = {
+                name = 'Поговори с %NPC_NAME%';
+                type = 'talk';
+                npcId = 1234;
+            };
+            [4] = {
+                name = 'Отнеси %NPC_NAME% %ITEM_NAME%';
+                type = 'give';
+                itemId = 12;
+            };
+        };
+        local rewardsJson = {
+             -- это таблица с наградами, которые получает игрок
+            ['exp'] = 1000;
+            ['money'] = 10;
+            ['items'] = { 1, 2, 3 }; -- Тут короче писать айдишники итемов, которые выдаются персонажу
+        }
+
+        local tasks = fileCreate('tasks.json')  
+        fileWrite(tasks, toJSON(tasksJson))        -- write a text line
+        fileClose(tasks) 
+
+        local rewards = fileCreate('rewards.json')  
+        fileWrite(rewards, toJSON(rewardsJson))        -- write a text line
+        fileClose(rewards) 
+]]
+       

@@ -1,11 +1,12 @@
 <meta>
-    <info name='GameController' author="DimDey" />
-	<script src="Server/SMain.lua" />
-	<script src="Server/SUtils.lua" />
-	<script src="Server/Database/SDataBaseModule.lua" />
-	<script src="Server/Database/Exports/SExecExport.lua" />
-	<script src="Client/CMain.lua" type="client" />
-
-	<export function="exportDB" type="server" />
-
+    <info name="GameController" author="DimDey" />
+    <min_mta_version server="1.5.2"></min_mta_version>
+    <script src="Server/Main.lua" />
+    <script src="Server/Utils.lua" />
+    <script src="Server/Database/DataBaseModule.lua" />
+    <script src="Server/Database/Exports/ExecExport.lua" />
+    <script src="Client/Main.lua" type="client" />
+    
+    <export function="exportDB" type="server" />
+    
 </meta>

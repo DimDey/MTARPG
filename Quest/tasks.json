@@ -1,0 +1,1 @@
+[ { "1": { "type": "kill", "name": "Убить пидорасов", "count": 10 }, "2": { "type": "research", "name": "Осмотреть область", "time": 5000 }, "4": { "type": "give", "name": "Отнеси %NPC_NAME% %ITEM_NAME%", "itemId": 12 }, "3": { "npcId": 1234, "type": "talk", "name": "Поговори с %NPC_NAME%" } } ]

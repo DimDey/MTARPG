@@ -17,7 +17,7 @@ LocationManager = {
             return false;
         end;
 
-        outputDebugString(loadMapData(pLocation.pMapFile, root))
+        loadMapData(pLocation.pMapFile, root)
 
         if not pLocation.bSinglePlayer then 
             pLocation.bSinglePlayer = false 
