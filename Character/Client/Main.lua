@@ -12,7 +12,7 @@ Characters = {
     end;
     
     init = function( self, aData )
-        local nId = #aCharData
+        local nId = #aCharData + 1
         table.insert(aCharData, nId, aData )
 
         aPlayerIds[aData.pPlayer] = nId;

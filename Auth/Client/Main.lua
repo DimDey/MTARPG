@@ -12,6 +12,10 @@ Auth = {
         addEventHandler('onClientRender', root, Auth.onRender)
     end;
 
+    onStop = function()
+        localPlayer:setData('bLoggedIn', nil)
+    end;
+
     onRender = function( )
         for index, value in pairs( Auth.GUI ) do
             dxDrawText( value.text, value.x, value.y, value.w, value.h, white, 1, value.font )
@@ -22,10 +26,9 @@ Auth = {
         showCursor( false )
         Auth.bIsLogged = true;
         removeEventHandler('onClientRender', root, Auth.onRender)
-
-        outputChatBox('Привет, лох')
     end;
 }
 addEventHandler('onClientResourceStart', resourceRoot, Auth.onInit)
+addEventHandler('onClientResourceStop', resourceRoot, Auth.onStop)
 addEvent('onClientLogged', true)
 addEventHandler( 'onClientLogged', localPlayer, Auth.onClientLogged )

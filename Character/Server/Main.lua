@@ -22,6 +22,10 @@ Character = {
         return aCharactersData.aList[aCharactersData.nCount], aCharactersData.nCount
     end;
 
+    onResourceStop = function()
+        --TODO: добавить очистку айдишников при рестарте Auth и выходе игрока
+    end;    
+
     getData = function( self, player )
         local nCharId = player:getData('charTableId')
         if nCharId then

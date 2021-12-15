@@ -19,7 +19,6 @@ addEventHandler('callExec', root, Database.execController)
 Database.requestConnection = function( )
     local pConnection = Database.pDatabase
     if pConnection then
-        outputDebugString('request')
         triggerEvent('onDatabaseConnection', source, pConnection)
     end
 end;
@@ -29,6 +28,56 @@ addEventHandler('onResourceRequestConnection', root, Database.requestConnection)
 function exportDB() --export database controller to the other resource
     if not Database.bConnected then return false end
     return [[
+        function deepcopy (t) -- deep-copy a table
+            if type(t) ~= "table" then return t end
+            local meta = getmetatable(t)
+            local target = {}
+            for k, v in pairs(t) do
+                if type(v) == "table" then
+                    target[k] = deepcopy(v)
+                else
+                    target[k] = v
+                end
+            end
+            setmetatable(target, meta)
+            return target
+        end
+
+        function table.fromJSON(t) -- unpack all json values in table
+            for index, value in pairs(t) do
+                if type(value) == 'string' then
+                    local newValue = fromJSON(value)
+                    if type(newValue) == 'table' then
+                        newValue = newValue
+                        t[index] = table.stringIndexToNumber(newValue)
+                    end
+                end
+            end
+            return t
+        end;
+
+        function table.stringIndexToNumber(t) -- clear string index, who gets in fromJSON
+            local aNewIndex = {}
+            for index, value in pairs(t) do
+                if type(value) == 'table' then
+                    value = table.stringIndexToNumber(value)
+                end
+                if not string.find( index, '%a' ) and type(index) ~= 'number' then
+                    local newIndex = tonumber(index)
+                    aNewIndex[index] = newIndex;
+                    t[newIndex] = deepcopy(t[index])
+                end
+            end
+
+            for index, newIndex in pairs(aNewIndex) do
+                if t[newIndex] then
+                    t[index] = {};
+                end
+            end
+
+            return t
+        end;
+
         Database = {
             pConnection = false;
             exec = function( self, aCallbackFunction, aCallbackArgs, sQuery )
@@ -51,10 +100,10 @@ function exportDB() --export database controller to the other resource
             end;
             poll = function( aReturnData )
                 if type(_G[aReturnData.fFunction]) == 'function' then
-                    return _G[aReturnData.fFunction]( aReturnData.aFunctionArgs, aReturnData.aResult );
+                    return _G[aReturnData.fFunction]( aReturnData.aData, unpack(aReturnData.aFunctionArgs or {}) );
                 else
                     local fFunction = Database:getFunction( aReturnData.fFunction );
-                    return fFunction( aReturnData.aFunctionArgs, aReturnData.aData );
+                    return fFunction( aReturnData.aData, unpack(aReturnData.aFunctionArgs or {}) );
                 end
             end;
 

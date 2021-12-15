@@ -47,4 +47,3 @@
         fileWrite(rewards, toJSON(rewardsJson))        -- write a text line
         fileClose(rewards) 
 ]]
-       

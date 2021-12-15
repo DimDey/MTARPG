@@ -1,5 +1,6 @@
 Auth.Register = {
     onCreateCharacter = function( self, pPlayer, sLogin, sPassword )
+        if pPlayer:getData('bLoggedIn') then return end
         local bIsAccountCreated, nRows = Database:exec('SELECT * FROM `characters` WHERE username="'..sLogin..'"')
         
         if nRows == 0 then
@@ -16,11 +17,12 @@ Auth.Register = {
 
             local sQueryInsertString = Database:prepareString('INSERT INTO `characters` (`username`, `password` ) VALUES (?,?);', sLogin, sPasswordHash );
 
-            Database:exec( { 'SAuth', 'Register', 'onAccountCreated' }, { pPlayer = pPlayer; sLogin = sLogin; }, sQueryInsertString)
+            Database:exec( { 'Auth', 'Register', 'onAccountCreated' }, { pPlayer = pPlayer; sLogin = sLogin; }, sQueryInsertString)
         end
     end;
 
-    onAccountCreated = function( aArguments, aResult )
+    onAccountCreated = function( self, aArguments, aResult )
+        outputDebugString(inspect(aArguments))
         if aResult.nRows == 1 then
             Auth:onCharacterSuccessAuth( aArguments.pPlayer, aArguments.sLogin, aResult.nLastId );
         end

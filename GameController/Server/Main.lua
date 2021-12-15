@@ -19,9 +19,9 @@ Main = {
                 
                 local start = startResource ( resource )
                 if ( start ) then
-                    outputDebugString ( resourceName .. " was started successfully.")
+                    outputConsole ( resourceName .. " was started successfully.")
                 else
-                    outputDebugString ( "This resource doesn't exist." )
+                    outputConsole ( "This resource doesn't exist." )
                 end
             end
         end

@@ -1,5 +1,6 @@
 Auth.Login = {
     onCharacterAuth = function( self, pPlayer, sLogin, sPassword )
+        if pPlayer:getData('bLoggedIn') then return end
         local aResult, nRows, nLastId = Database:exec('SELECT * FROM `characters` WHERE username="'..sLogin..'"')
         if nRows == 1 then
             local aAccountData = aResult[1]

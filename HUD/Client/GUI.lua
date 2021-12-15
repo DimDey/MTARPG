@@ -16,7 +16,10 @@ GUI = {
     onClientAuth = function( )
         self = GUI;
         self:showComponents( true )
-        addEventHandler('onClientRender', root, GUI.onClientRender )
+        if not self.isRender then
+            addEventHandler('onClientRender', root, GUI.onClientRender )
+            self.isRender = true
+        end
     end;
 
     onClientRender = function( )

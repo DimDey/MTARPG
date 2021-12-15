@@ -10,6 +10,7 @@ QuestList = {
 };
 
 QuestLoader = {
+    --INIT QUESTS ON RESOURCE onResourceStart
     init = function()
 
         local __QuestMt = {
@@ -42,18 +43,17 @@ QuestLoader = {
             return false;
         end
         loadstring(sDatabase)()
-
         Database:exec({'QuestLoader', 'onQuestsFromDatabase'}, nil, 'SELECT * FROM `quests`')
         
     end;
 
-    onQuestsFromDatabase = function( _, aData )
+    onQuestsFromDatabase = function( aData )
         for i, quest in ipairs(aData.aResult) do
             quest.tasks = fromJSON(quest.tasks)
             quest.rewards = fromJSON(quest.rewards)
             QuestList[i] = quest
         end
-        
+        Quests.getPlayerData(getRandomPlayer())
     end;
 };
 addEventHandler('onResourceStart', resourceRoot, QuestLoader.init)

@@ -10,9 +10,12 @@ NPC = {
         self.byServerTempIds[NPCData.tempId] = clientId
 
         NPCData.ped = createPed( NPCData.skin, NPCData.x, NPCData.y, NPCData.z )
+        setElementData( NPCData.ped, 'NPCId', clientId )
         local localDimension = getElementDimension( localPlayer )
 
         setElementDimension( NPCData.ped, localDimension )
+
+        setElementFrozen(NPCData.ped, true)
     end;
 
     delete = function( self, id )
@@ -57,9 +60,21 @@ NPC = {
         end
     end;
 
+    onClientClickPed = function( )
+        local NPCId = getElementData( source, 'NPCId' )
+        if NPCId then
+            local NPCData = NPC.list[NPCId]
+            if NPCData then
+                outputDebugString('кликнул по '..NPCData.name)
+            end
+        end
+    end;
+
 }
 addEvent('onClientHitCollider', true)
 addEventHandler('onClientHitCollider', root, NPC.onHit )
 addEvent('onClientLeaveCollider', true)
 addEventHandler('onClientLeaveCollider', root, NPC.onLeave)
 addEventHandler('onClientElementDimensionChange', localPlayer, NPC.onChangeDimension)
+addEvent('onClientClickPed')
+addEventHandler('onClientClickPed', root, NPC.onClientClickPed)

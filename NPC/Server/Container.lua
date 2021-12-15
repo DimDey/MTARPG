@@ -28,9 +28,6 @@ NPC = {
                 NPC.onPlayerHitCollider( player, matchingDimension, data.col )
             end
         end, 400, 1, data)
-
-        
-        
     end;
 
     getNPCInDimension = function( self, dimension )
@@ -85,4 +82,7 @@ NPC:create{
     dimension = -1;
 
     name = 'Витька Чеснок';
+    animations = {
+        [1] = {'dealer', 'dealer_idle', -1, true, false, true, true, 200, true};
+    }
 }
